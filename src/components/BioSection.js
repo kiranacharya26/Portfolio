@@ -22,6 +22,7 @@ const iconMap = {
 const BioSection = () => {
   const [bioData, setBioData] = useState(null);
   const [techStack, setTechStack] = useState([]);
+  const [resumeUrl, setResumeUrl] = useState("");
 
   useEffect(() => {
     const fetchBioData = async () => {
@@ -37,6 +38,7 @@ const BioSection = () => {
             subtitle: data.subtitle,
           });
           setTechStack(data.techStack || []);
+          setResumeUrl(data.resumeUrl); // Assuming `resumeUrl` is stored in Firestore
         } else {
           console.log("No such document!");
         }
@@ -48,8 +50,19 @@ const BioSection = () => {
     fetchBioData();
   }, []);
 
+  const handleDownloadResume = () => {
+    if (resumeUrl) {
+      const link = document.createElement("a");
+      link.href = resumeUrl;
+      link.download = "Resume.pdf"; // Default file name
+      link.click();
+    } else {
+      console.error("Resume URL not available");
+    }
+  };
+
   if (!bioData || !techStack.length) {
-    return <p><Loader/></p>;
+    return <p><Loader /></p>;
   }
 
   return (
@@ -59,6 +72,12 @@ const BioSection = () => {
         <p className="text-4xl lg:text-6xl font-light mb-4">{bioData.title}</p>
         <p className="text-4xl lg:text-6xl font-bold mb-4">{bioData.name},</p>
         <p className="text-4xl lg:text-6xl font-light">{bioData.subtitle}</p>
+        <button
+          onClick={handleDownloadResume}
+          className="mt-6 text-lg font-light text-gray-500 hover:underline"
+        >
+          Download Resume
+        </button>
       </div>
 
       {/* Right Side: Tech Stack */}
@@ -90,3 +109,4 @@ const BioSection = () => {
 };
 
 export default BioSection;
+

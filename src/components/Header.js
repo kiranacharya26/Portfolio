@@ -34,10 +34,10 @@ const Header = () => {
 
         {/* Icons Section - Centered on mobile */}
         <div className="flex justify-center space-x-6 mt-6 sm:mt-0">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
+          <a href="https://www.linkedin.com/in/kiran-acharya/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
             <FaLinkedin size={18} />
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
+          <a href="https://github.com/kiranacharya26" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
             <FaGithub size={18} />
           </a>
         </div>
