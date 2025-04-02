@@ -1,52 +1,38 @@
-import React from 'react';
-
-const projects = [
-  {
-    title: 'Project 1',
-    description: 'This is a description of Project 1.',
-    link: '#',
-    image: 'https://placehold.co/600x400', // Replace with actual image URLs
-  },
-  {
-    title: 'Project 2',
-    description: 'This is a description of Project 2.',
-    link: '#',
-    image: 'https://placehold.co/600x400',
-  },
-  {
-    title: 'Project 3',
-    description: 'This is a description of Project 3.',
-    link: '#',
-    image: 'https://placehold.co/600x400',
-  },
-  {
-    title: 'Project 4',
-    description: 'This is a description of Project 4.',
-    link: '#',
-    image: 'https://placehold.co/600x400',
-  },
-  {
-    title: 'Project 5',
-    description: 'This is a description of Project 5.',
-    link: '#',
-    image: 'https://placehold.co/600x400',
-  },
-  {
-    title: 'Project 6',
-    description: 'This is a description of Project 6.',
-    link: '#',
-    image: 'https://placehold.co/600x400',
-  },
-];
+import React, { useEffect, useState } from "react";
+import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const PortfolioSection = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "portfolio"));
+        const projectsData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProjects(projectsData);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (!projects.length) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <section id="portfolio" className="w-full bg-white px-8 py-16">
       <h2 className="text-4xl font-bold text-center mb-12">My Portfolio</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <div
-            key={index}
+            key={project.id}
             className="relative group bg-white overflow-hidden"
           >
             {/* Image */}

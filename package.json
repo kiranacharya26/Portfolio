@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "express": "^5.1.0",
+    "firebase": "^11.6.0",
     "framer-motion": "^12.6.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
