@@ -1,18 +1,22 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore"; // Import Firestore
+import { getAnalytics } from "firebase/analytics";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyBATCtil8JdXfv4-4yndT34C6zRGpS3A48",
+  authDomain: "portfolio-bacb7.firebaseapp.com",
+  projectId: "portfolio-bacb7",
+  storageBucket: "portfolio-bacb7.firebasestorage.app",
+  messagingSenderId: "968013815674",
+  appId: "1:968013815674:web:2a34a7e8b8c98ad6bec0c3",
+  measurementId: "G-2LY2PLV5N2"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const analytics = getAnalytics(app);
+const db = getFirestore(app); // Initialize Firestore
 
-export { db };
+export { db, analytics }; // Export Firestore and Analytics
