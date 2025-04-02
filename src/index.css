@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+/* Global Typography */
+body {
+    @apply bg-gray-100 font-sans text-gray-800;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold text-gray-900;
+}
+
+p {
+    @apply leading-relaxed text-gray-700;
+}
+
+/* Section Styling */
+section {
+    @apply max-w-screen-xl mx-auto px-8 py-16;
+}
+
+/* Responsive Typography */
+@media (max-width: 1024px) {
+    h1 {
+        @apply text-4xl;
+    }
+
+    p {
+        @apply text-base;
+    }
+
+    .tech-icon {
+        @apply w-16 h-16;
+        /* Smaller icons for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        @apply text-3xl;
+    }
+
+    p {
+        @apply text-sm;
+    }
+
+    .tech-icon {
+        @apply w-12 h-12;
+        /* Smaller icons for small screens */
+    }
+}

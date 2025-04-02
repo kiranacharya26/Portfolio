@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+.next/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+turbo-debug.log*
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Environment Variables
+.env*
+!.env.example
+
+# Build & Cache
+dist/
+*.cache
+.cache/
+*.lock
+
+# Debugging & Testing
+coverage/
+jest.cache/
+cypress/videos/
+cypress/screenshots/
+playwright-report/
+
+# Git
+.git/
