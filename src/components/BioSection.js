@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs } from "react-icons/fa";
 import { SiShopify, SiRedux, SiNextdotjs, SiTailwindcss, SiMysql } from "react-icons/si";
+import Loader from "./Loader";
 
 const iconMap = {
   FaReact: <FaReact size={40} className="text-blue-500" />,
@@ -48,7 +49,7 @@ const BioSection = () => {
   }, []);
 
   if (!bioData || !techStack.length) {
-    return <p>Loading...</p>;
+    return <p><Loader/></p>;
   }
 
   return (

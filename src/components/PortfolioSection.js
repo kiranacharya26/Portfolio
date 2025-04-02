@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import Loader from "./Loader";
 
 const PortfolioSection = () => {
   const [projects, setProjects] = useState([]);
@@ -23,7 +24,7 @@ const PortfolioSection = () => {
   }, []);
 
   if (!projects.length) {
-    return <p>Loading...</p>;
+    return <p><Loader/></p>;
   }
 
   return (

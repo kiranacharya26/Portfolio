@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        bounce: "bounce 1s infinite",
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'], // Set Poppins as the default sans-serif font
       },
