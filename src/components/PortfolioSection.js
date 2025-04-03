@@ -34,21 +34,19 @@ const PortfolioSection = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="relative group bg-white overflow-hidden"
+            className="relative group bg-white overflow-hidden shadow-lg"
           >
             {/* Image */}
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover group-hover:blur-sm transition duration-300"
+              className="w-full h-72 object-cover group-hover:blur-sm transition duration-300"
             />
 
             {/* Hover Content */}
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300">
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-sm text-gray-300 mb-4">{project.description}</p>
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 p-4">
+              <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
+              <p className="text-xs text-gray-300 mb-4 text-center">{project.description}</p>
               <a
                 href={project.link}
                 target="_blank"

@@ -24,7 +24,7 @@ const ServicesSection = () => {
   }, []);
 
   if (!services.length) {
-    return <p><Loader/></p>;
+    return <p><Loader /></p>;
   }
 
   return (
@@ -34,10 +34,17 @@ const ServicesSection = () => {
         {services.map((service) => (
           <div
             key={service.id}
-            className="p-6 hover:shadow-xl transition-shadow duration-300"
+            className="p-6 hover:shadow-xl transition-shadow duration-300 bg-white rounded-lg"
           >
             <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-            <p className="text-gray-700">{service.description}</p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              {service.description
+                .split(".") // Split the description into points
+                .filter((point) => point.trim() !== "") // Remove empty points
+                .map((point, index) => (
+                  <li key={index}>{point.trim()}</li> // Render each point as a list item
+                ))}
+            </ul>
           </div>
         ))}
       </div>
